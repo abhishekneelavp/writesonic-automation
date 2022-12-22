@@ -12,22 +12,24 @@ setCommonPlugins();
 /** @type {CodeceptJS.MainConfig} */
 exports.config = {
   tests: './*_test.js',
-  output: './output',
+  output: '../output',
   helpers: {
     Playwright: {
       url: 'https://www.google.com/',
       show: true,
-      browser: 'chromium'
+      browser: 'chromium',
+    
 
     }
   },
   include: {
     "I": "../steps_file.js",
     "loginPage": "../pages/WritesonicLogin.js",
-    "testDataPage": "../resources/testdata.properties.js",
-    "expectedAssertionsPage": "../resources/expectedassertions.properties.js",
+    "testDataPage": "../resources/testdata.js",
+    "expectedAssertionsPage": "../resources/expectedassertions.js",
     "article3OPage": "../pages/Article3.OPage.js",
     "article4OPage": "../pages/Article4.OPage.js",
+    "AIArticlePage": "../pages/AIArticlePage.js"
   },
   name: 'writesonic_POM',
   plugins: {

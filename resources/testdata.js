@@ -3,7 +3,8 @@ const { I } = inject();
 module.exports = {
 
   home: {
-    baseUrl: 'https://app.writesonic.com/login',
+   // baseUrl: 'https://app.writesonic.com/login',
+    baseUrl: 'https://staging.writesonic.com/login',
   },
 
   login: {
@@ -11,20 +12,18 @@ module.exports = {
     //email: 'arunkumaraka55@gmail.com',
     email: 'arun.akenapelli@b2btesters.com',
     //password: '123456',
-    password: 'Arun@1111',
+    // password: 'Arun@1111',
+    password: '9849261360',
     invalidpassword: 'QWETT',
     invalidemail: 'bsxbj@uibcdn',
     emptyemail: "",
     emptypaswd: ""
   },
-  Article3Otest: {
+  AIArticle: {
     topic: 'Beauty of nature',
     qualitytype: 'Economy',
     language: 'English',
-    outputs: '1',
-    empty:''
-  },
-  Article4o:{
+    outputs: '2',
     excited:'Excited',
     professional:'Professional',
     encouraging:'Encouraging',

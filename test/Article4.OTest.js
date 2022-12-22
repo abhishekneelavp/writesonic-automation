@@ -6,61 +6,80 @@ Before(({ I, loginPage, testDataPage }) => {
     loginPage.loginUserforallfeatures(testDataPage.login.email, testDataPage.login.password);
 
 })
-
-Scenario('@ mandatory validation for all input fields', ({ I,article4OPage, article3OPage, expectedAssertionsPage }) => {
-    I.wait(5);
+Scenario('@ mandatory validation for all input fields', ({ I, article4OPage, AIArticlePage ,expectedAssertionsPage }) => {
     article4OPage.clickOnArticle4Ofeature();
-    I.see(expectedAssertionsPage.Article4O.gettxtaiarticle4o);
+
+    //Get Keywords
+    I.see(expectedAssertionsPage.AIArticle.gettxtaiarticle4o);
     article4OPage.clickOnSearchKeywords();
-    I.see(expectedAssertionsPage.Article3O.gettxtPleaseinsertatopic);
-    article3OPage.clickOnGetIdeasTab();
-    article3OPage.clickOnGenerateButton();
-    I.see(expectedAssertionsPage.Article3O.gettxtPleaseinsertatopic);
-    I.see(expectedAssertionsPage.Article4O.gettxtpleaseinsertkeywords);
-    article3OPage.clickOnGetAnOutlineTab();
-    article3OPage.clickOnGenerateButton();
-    I.see(expectedAssertionsPage.Article3O.gettxtPleaseinsertitle);
-    I.see(expectedAssertionsPage.Article4O.gettxtpleaseinsertkeywords);
-    article3OPage.clickOnGetAnArticleTab();
-    article3OPage.clickOnGenerateButton();
-    I.see(expectedAssertionsPage.Article3O.gettxtPleaseinsertitle);
-    I.see(expectedAssertionsPage.Article4O.gettxtpleaseinsertkeywords);
-    I.see(expectedAssertionsPage.Article3O.gettxtPleaseaddatleast4outlines);
+    I.see(expectedAssertionsPage.AIArticle.gettxtPleaseinsertatopic);
+
+    //Get Ideas Tab
+    AIArticlePage.clickOnGetIdeasTab();
+    AIArticlePage.clickOnGenerateButton();
+    I.see(expectedAssertionsPage.AIArticle.gettxtPleaseinsertatopic);
+    I.see(expectedAssertionsPage.AIArticle.gettxtpleaseinsertkeywords);
+
+    //Get An Outline Tab
+    AIArticlePage.clickOnGetAnOutlineTab();
+    AIArticlePage.clickOnGenerateButton();
+    I.see(expectedAssertionsPage.AIArticle.gettxtPleaseinsertitle);
+    I.see(expectedAssertionsPage.AIArticle.gettxtpleaseinsertkeywords);
+
+    //Get An Article Tab
+    AIArticlePage.clickOnGetAnArticleTab();
+    AIArticlePage.clickOnGenerateButton();
+    I.see(expectedAssertionsPage.AIArticle.gettxtPleaseinsertitle);
+    I.see(expectedAssertionsPage.AIArticle.gettxtpleaseinsertkeywords);
+    I.see(expectedAssertionsPage.AIArticle.gettxtPleaseaddatleast4outlines);
 });
 
-Scenario('@Article 4.O feature', ({ I, article3OPage, article4OPage, testDataPage, expectedAssertionsPage }) => {
+Scenario('@Article 4.O feature', ({ I, AIArticlePage, article4OPage, testDataPage, expectedAssertionsPage }) => {
     article4OPage.clickOnArticle4Ofeature();
-    article3OPage.setTopicField(testDataPage.Article3Otest.empty);
+
+    //Get Keywords
+    AIArticlePage.setTopicField(testDataPage.AIArticle.topic);
     article4OPage.clickOnSearchKeywords();
-    I.see(expectedAssertionsPage.Article3O.gettxtPleaseinsertatopic);
-    article3OPage.setTopicField(testDataPage.Article3Otest.topic);
-    article4OPage.clickOnSearchKeywords();
-    I.wait(15);
+    I.wait(40);
     article4OPage.clickOnKeywordCheckBox();
     article4OPage.clickOnNextButton();
-    article4OPage.setToneOfVoice(testDataPage.Article4o.excited);
+
+    //Get Ideas Tab
+    article4OPage.setToneOfVoice(testDataPage.AIArticle.excited);
     article4OPage.clickOnExcited();
-    article4OPage.setPointOfView(testDataPage.Article4o.firstPerson);
+    article4OPage.setPointOfView(testDataPage.AIArticle.firstPerson);
     article4OPage.clickOnFirstPerson();
-    article3OPage.setOutputs(testDataPage.Article3Otest.outputs);
-    article3OPage.clickOnGenerateButton();
-    article3OPage.clickOnCopyBtn();
-    I.see(expectedAssertionsPage.Article3O.gettxttexthasbeencopiedtoclipboard);
+    AIArticlePage.setOutputs(testDataPage.AIArticle.outputs);
+    AIArticlePage.clickOnGenerateButton();
+    AIArticlePage.clickOnCopyBtn();
+    I.see(expectedAssertionsPage.AIArticle.gettxttexthasbeencopiedtoclipboard);
+    AIArticlePage.clickOnEditIcon();
+    I.see(expectedAssertionsPage.AIArticle.gettxtCopyhasbeeneditedsuccessfully);
+    AIArticlePage.clickOnDeleteIcon();
+    I.see(expectedAssertionsPage.AIArticle.gettextCopyhasbeendeletedsuccessfully);
     article4OPage.clickOnRadioButtonFortitle();
-    article4OPage.setToneOfVoice(testDataPage.Article4o.encouraging);
+
+    //Get An Outline Tab
+    article4OPage.setToneOfVoice(testDataPage.AIArticle.encouraging);
     article4OPage.clickOnEncouraging();
-    article4OPage.setPointOfView(testDataPage.Article4o.thirdperson);
+    article4OPage.setPointOfView(testDataPage.AIArticle.thirdperson);
     article4OPage.clickOnThirdPerson();
-    article3OPage.setOutputs(testDataPage.Article3Otest.outputs);
-    article3OPage.clickOnGenerateButton();
-    article3OPage.clickOnCopyBtn();
-    I.see(expectedAssertionsPage.Article3O.gettxttexthasbeencopiedtoclipboard);
-    article3OPage.clickOnRadioBtnForOutline();
-    article4OPage.setToneOfVoice(testDataPage.Article4o.witty);
+    AIArticlePage.setOutputs(testDataPage.AIArticle.outputs);
+    AIArticlePage.clickOnGenerateButton();
+    AIArticlePage.clickOnCopyBtn();
+    I.see(expectedAssertionsPage.AIArticle.gettxttexthasbeencopiedtoclipboard);
+    AIArticlePage.clickOnEditIcon();
+    I.see(expectedAssertionsPage.AIArticle.gettxtCopyhasbeeneditedsuccessfully);
+    AIArticlePage.clickOnDeleteIcon();
+    I.see(expectedAssertionsPage.AIArticle.gettextCopyhasbeendeletedsuccessfully);
+    AIArticlePage.clickOnRadioBtnForOutline();
+
+    //Get An Article Tab
+    article4OPage.setToneOfVoice(testDataPage.AIArticle.witty);
     article4OPage.clickOnWitty();
-    article3OPage.clickOnGenerateButton();
-    article3OPage.clickOnSaveBtn();
-    I.see(expectedAssertionsPage.Article3O.gettextCopyhasbeensavedsuccessfully);
-    article3OPage.clickOnSaveBtn();
-    I.see(expectedAssertionsPage.Article3O.gettextCopyhasbeenunsavedsuccessfully);
+    AIArticlePage.clickOnGenerateButton();
+    AIArticlePage.clickOnSaveBtn();
+    I.see(expectedAssertionsPage.AIArticle.gettextCopyhasbeensavedsuccessfully);
+    AIArticlePage.clickOnSaveBtn();
+    I.see(expectedAssertionsPage.AIArticle.gettextCopyhasbeenunsavedsuccessfully);
 });

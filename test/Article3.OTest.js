@@ -6,57 +6,86 @@ Before(({ I, loginPage, testDataPage }) => {
 
 })
 
-Scenario('@ mandatory validation for all input fields', ({ I, article3OPage, expectedAssertionsPage }) => {
-    I.wait(5);
+Scenario('@ mandatory validation for all input fields', ({ I, article3OPage,AIArticlePage, expectedAssertionsPage }) => {
     article3OPage.clickOnArticle3Ofeature();
-    I.see(expectedAssertionsPage.Article3O.txtaiarticle3o);
-    article3OPage.clickOnGenerateButton();
-    I.see(expectedAssertionsPage.Article3O.gettxtPleaseinsertatopic);
-    article3OPage.clickOnGetAnIntroab();
-    article3OPage.clickOnGenerateButton();
-    I.see(expectedAssertionsPage.Article3O.gettxtPleaseinsertatopic);
-    article3OPage.clickOnGetAnOutlineTab();
-    article3OPage.clickOnGenerateButton();
-    I.see(expectedAssertionsPage.Article3O.gettxtPleaseinsertitle);
-    I.see(expectedAssertionsPage.Article3O.gettxtPleaseinsertaintro);
-    I.see(expectedAssertionsPage.Article3O.gettxtEnsurethisvaluehasatleast2charactersensurethisvaluehasatleast2characters);
-    article3OPage.clickOnGetAnArticleTab();
-    article3OPage.clickOnGenerateButton();
-    I.see(expectedAssertionsPage.Article3O.gettxtPleaseinsertitle);
-    I.see(expectedAssertionsPage.Article3O.gettxtPleaseinsertanintro);
-    I.see(expectedAssertionsPage.Article3O.gettxtPleaseaddatleast4outlines);
+    I.see(expectedAssertionsPage.AIArticle.txtaiarticle3o);
+
+    //Get An Ideas Tab
+    AIArticlePage.clickOnGenerateButton();
+    I.see(expectedAssertionsPage.AIArticle.gettxtPleaseinsertatopic);
+
+    //Get An Intro Tab
+    AIArticlePage.clickOnGetAnIntroTab();
+    AIArticlePage.clickOnGenerateButton();
+    I.see(expectedAssertionsPage.AIArticle.gettxtPleaseinsertatopic);
+
+    //Get An Outline Tab
+    AIArticlePage.clickOnGetAnOutlineTab();
+    AIArticlePage.clickOnGenerateButton();
+    I.see(expectedAssertionsPage.AIArticle.gettxtPleaseinsertitle);
+    I.see(expectedAssertionsPage.AIArticle.gettxtPleaseinsertaintro);
+    I.see(expectedAssertionsPage.AIArticle.gettxtEnsurethisvaluehasatleast2charactersensurethisvaluehasatleast2characters);
+
+    //Get An Article Tab
+    AIArticlePage.clickOnGetAnArticleTab();
+    AIArticlePage.clickOnGenerateButton();
+    I.see(expectedAssertionsPage.AIArticle.gettxtPleaseinsertitle);
+    I.see(expectedAssertionsPage.AIArticle.gettxtPleaseinsertanintro);
+    I.see(expectedAssertionsPage.AIArticle.gettxtPleaseaddatleast4outlines);
 });
 
-Scenario('@Verify Article 3.O feature', ({ I, article3OPage, testDataPage, expectedAssertionsPage }) => {
-    I.wait(5);
+Scenario('@Verify Article 3.O feature', ({ I, article3OPage,AIArticlePage, testDataPage, expectedAssertionsPage }) => {
+    
     article3OPage.clickOnArticle3Ofeature();
-    I.see(expectedAssertionsPage.Article3O.txtaiarticle3o);
-    article3OPage.setTopicField(testDataPage.Article3Otest.topic);
-    article3OPage.setQualityTypeAsEconomy(testDataPage.Article3Otest.qualitytype);
-    article3OPage.setLanguageAsEnglish(testDataPage.Article3Otest.language);
-    article3OPage.setOutputs(testDataPage.Article3Otest.outputs);
-    article3OPage.clickOnGenerateButton();
-    article3OPage.clickOnCopyBtn();
-    I.see(expectedAssertionsPage.Article3O.gettxttexthasbeencopiedtoclipboard);
+
+    //Get An Ideas Tab
+    I.see(expectedAssertionsPage.AIArticle.txtaiarticle3o);
+    AIArticlePage.setTopicField(testDataPage.AIArticle.topic);
+    article3OPage.setQualityTypeAsEconomy(testDataPage.AIArticle.qualitytype);
+    article3OPage.setLanguageAsEnglish(testDataPage.AIArticle.language);
+    AIArticlePage.setOutputs(testDataPage.AIArticle.outputs);
+    AIArticlePage.clickOnGenerateButton();
+    AIArticlePage.clickOnCopyBtn();
+    I.see(expectedAssertionsPage.AIArticle.gettxttexthasbeencopiedtoclipboard);
+    AIArticlePage.clickOnEditIcon();
+    I.see(expectedAssertionsPage.AIArticle.gettxtCopyhasbeeneditedsuccessfully);
+    AIArticlePage.clickOnDeleteIcon();
+    I.see(expectedAssertionsPage.AIArticle.gettextCopyhasbeendeletedsuccessfully);
     article3OPage.clickOnRadioBtn();
-    I.see(expectedAssertionsPage.Article3O.getanintrotabtitlefield);
-    article3OPage.setQualityTypeAsEconomy(testDataPage.Article3Otest.qualitytype);
-    article3OPage.setLanguageAsEnglish(testDataPage.Article3Otest.language);
-    article3OPage.setOutputs(testDataPage.Article3Otest.outputs);
-    article3OPage.clickOnGenerateButton();
-    article3OPage.clickOnCopyBtn();
-    I.see(expectedAssertionsPage.Article3O.gettxttexthasbeencopiedtoclipboard);
+
+    //Get An Intro Tab
+    I.see(expectedAssertionsPage.AIArticle.getanintrotabtitlefield);
+    article3OPage.setQualityTypeAsEconomy(testDataPage.AIArticle.qualitytype);
+    article3OPage.setLanguageAsEnglish(testDataPage.AIArticle.language);
+    AIArticlePage.setOutputs(testDataPage.AIArticle.outputs);
+    AIArticlePage.clickOnGenerateButton();
+    AIArticlePage.clickOnCopyBtn();
+    I.see(expectedAssertionsPage.AIArticle.gettxttexthasbeencopiedtoclipboard);
+    AIArticlePage.clickOnEditIcon();
+    I.see(expectedAssertionsPage.AIArticle.gettxtCopyhasbeeneditedsuccessfully);
+    AIArticlePage.clickOnDeleteIcon();
+    I.see(expectedAssertionsPage.AIArticle.gettextCopyhasbeendeletedsuccessfully);
     article3OPage.clickOnRadioBtn();
-    I.see(expectedAssertionsPage.Article3O.gettxtarticleintro);
-    article3OPage.setQualityTypeAsEconomy(testDataPage.Article3Otest.qualitytype);
-    article3OPage.setOutputs(testDataPage.Article3Otest.outputs);
-    article3OPage.clickOnGenerateButton();
-    article3OPage.clickOnRadioBtnForOutline();
-    article3OPage.setQualityTypeAsEconomy(testDataPage.Article3Otest.qualitytype);
-    article3OPage.setLanguageAsEnglish(testDataPage.Article3Otest.language);
-    article3OPage.clickOnGenerateButton();
-    article3OPage.clickOnSaveBtn();
-    I.see(expectedAssertionsPage.Article3O.gettextCopyhasbeensavedsuccessfully);
-    article3OPage.clickOnSaveBtn();
-    I.see(expectedAssertionsPage.Article3O.gettextCopyhasbeenunsavedsuccessfully);
+
+    //Get An Outline Tab
+    I.see(expectedAssertionsPage.AIArticle.gettxtarticleintro);
+    article3OPage.setQualityTypeAsEconomy(testDataPage.AIArticle.qualitytype);
+    AIArticlePage.setOutputs(testDataPage.AIArticle.outputs);
+    AIArticlePage.clickOnGenerateButton();
+    AIArticlePage.clickOnCopyBtn();
+    I.see(expectedAssertionsPage.AIArticle.gettxttexthasbeencopiedtoclipboard);
+    AIArticlePage.clickOnEditIcon();
+    I.see(expectedAssertionsPage.AIArticle.gettxtCopyhasbeeneditedsuccessfully);
+    AIArticlePage.clickOnDeleteIcon();
+    I.see(expectedAssertionsPage.AIArticle.gettextCopyhasbeendeletedsuccessfully);
+    AIArticlePage.clickOnRadioBtnForOutline();
+
+    //Get An Article Tab
+    article3OPage.setQualityTypeAsEconomy(testDataPage.AIArticle.qualitytype);
+    article3OPage.setLanguageAsEnglish(testDataPage.AIArticle.language);
+    AIArticlePage.clickOnGenerateButton();
+    AIArticlePage.clickOnSaveBtn();
+    I.see(expectedAssertionsPage.AIArticle.gettextCopyhasbeensavedsuccessfully);
+    AIArticlePage.clickOnSaveBtn();
+    I.see(expectedAssertionsPage.AIArticle.gettextCopyhasbeenunsavedsuccessfully);
 });
